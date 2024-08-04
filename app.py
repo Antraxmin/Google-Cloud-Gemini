@@ -7,12 +7,17 @@ const inventory = [
 A sample Hello World server.
 """
 import os
-
-from flask import Flask, render_template
+from flask import Flask, render_template, jsonify
+from inventory import inventory
 
 # pylint: disable=C0103
 app = Flask(__name__)
 
+# Generate an app route to display a list of inventory items in the JSON format from the inventory.py file.
+# Use the GET method.
+@app.route('/inventory', methods=['GET'])
+def get_inventory():
+    return jsonify(inventory)
 
 @app.route('/')
 def hello():
