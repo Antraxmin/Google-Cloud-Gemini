@@ -1,3 +1,8 @@
+const inventory = [
+    { productid: "12345", onhandqty: "10" },
+    { productid: "67890", onhandqty: "5" },
+    { productid: "11121", onhandqty: "20" }
+];
 """
 A sample Hello World server.
 """
