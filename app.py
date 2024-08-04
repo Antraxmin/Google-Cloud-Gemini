@@ -19,6 +19,17 @@ app = Flask(__name__)
 def get_inventory():
     return jsonify(inventory)
 
+# Generate an App route to get a product from the list of inventory items given the productID.
+# Use the GET method.
+# If there is an invalid productID, return a 404 error with an error message in the JSON.
+@app.route('/inventory/<productid>', methods=['GET'])
+def get_product(productid):
+    for product in inventory:
+        if product['productid'] == productid:
+            return jsonify(product)
+    return jsonify({'error': 'Product not found'}), 404
+
+
 @app.route('/')
 def hello():
     """Return a friendly HTTP greeting."""
